@@ -2,6 +2,13 @@
   "name": "google-library-manager",
   "version": "0.1.0",
   "private": true,
+  "keywords": [
+    "Google Library Manager",
+    "Library Manager"
+  ],
+  "author": "Emmanuel Ogunjirin",
+  "license": "ISC",
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -15,8 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev-server": "nodemon server.js --watch server.js",
+    "dev-client": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,10 +40,7 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "devDependencies": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
 }
