@@ -20,7 +20,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node app",
     "build": "react-scripts build",
     "dev-server": "nodemon server.js --watch server.js",
     "dev-client": "react-scripts start"
