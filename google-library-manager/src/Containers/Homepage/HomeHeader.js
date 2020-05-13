@@ -8,7 +8,7 @@ import Toolbar, { styles as toolbarStyles } from '../../Components/Homepage/Tool
 
 const styles = (theme) => ({
   title: {
-    fontSize: 24,
+    fontSize: 30,
   },
   placeholder: toolbarStyles(theme).root,
   toolbar: {
@@ -26,7 +26,7 @@ const styles = (theme) => ({
     justifyContent: 'flex-end',
   },
   rightLink: {
-    fontSize: 16,
+    fontSize: 15,
     color: theme.palette.common.white,
     marginLeft: theme.spacing(3),
   },
@@ -48,9 +48,9 @@ function AppAppBar(props) {
             underline="none"
             color="inherit"
             className={classes.title}
-            href="/premium-themes/onepirate/"
+            href="/"
           >
-            {'onepirate'}
+            {'Google Library Manager'}
           </Link>
           <div className={classes.right}>
             <Link
@@ -58,7 +58,7 @@ function AppAppBar(props) {
               variant="h6"
               underline="none"
               className={classes.rightLink}
-              href="/premium-themes/onepirate/sign-in/"
+              href="/signin"
             >
               {'Sign In'}
             </Link>
@@ -66,7 +66,7 @@ function AppAppBar(props) {
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink, classes.linkSecondary)}
-              href="/premium-themes/onepirate/sign-up/"
+              href="/signup"
             >
               {'Sign Up'}
             </Link>

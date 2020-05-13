@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '../../Components/Homepage/SignInButton';
 import Typography from '../../Components/Homepage/Typography';
 import ProductHeroLayout from './HomePageLayout';
 
@@ -16,7 +15,7 @@ const styles = (theme) => ({
     minWidth: 200,
   },
   h5: {
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(9),
     marginTop: theme.spacing(4),
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing(10),
@@ -32,26 +31,9 @@ function ProductHero(props) {
 
   return (
     <ProductHeroLayout backgroundClassName={classes.background}>
-      {/* Increase the network loading priority of the background image. */}
       <img style={{ display: 'none' }} src={backgroundImage} alt="increase priority" />
       <Typography color="inherit" align="center" variant="h2" marked="center">
-        Upgrade your Sundays
-      </Typography>
-      <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
-        Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
-      </Typography>
-      <Button
-        color="secondary"
-        variant="contained"
-        size="large"
-        className={classes.button}
-        component="a"
-        href="/premium-themes/onepirate/sign-up/"
-      >
-        Register
-      </Button>
-      <Typography variant="body2" color="inherit" className={classes.more}>
-        Discover the experience
+        Reading with a Twist
       </Typography>
     </ProductHeroLayout>
   );

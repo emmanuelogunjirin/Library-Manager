@@ -1,4 +1,6 @@
 import React from 'react';
+import HomeHeader from '../Containers/Homepage/HomeHeader';
+import Copyright from '../Components/Copyright';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +14,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Copyright from '../Components/Copyright';
 
 const signUpStyles = makeStyles((theme) => ({
     paper: {
@@ -40,6 +41,7 @@ function SignUp() {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <HomeHeader />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
