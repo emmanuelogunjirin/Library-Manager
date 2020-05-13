@@ -1,9 +1,9 @@
 import withRoot from './modules/withRoot';
 
 import React from 'react';
-import HomeFooter from './modules/views/HomeFooter';
-import ProductHero from './modules/views/ProductHero';
-import HomeHeader from './modules/views/HomeHeader';
+import HomeFooter from './modules/HomepageItems/HomeFooter';
+import ProductHero from './modules/HomepageItems/HomePage';
+import HomeHeader from './modules/HomepageItems/HomeHeader';
 
 function Index() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUp from '../Pages/SignUp';
 import SignIn from '../Pages/SignIn';
-import Home from '../onepirate/Home';
+import Home from '../Home';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
