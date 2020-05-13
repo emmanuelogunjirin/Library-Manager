@@ -1,5 +1,5 @@
 import React from 'react';
-import Copyright from './Copyright';
+import Copyright from '../Components/Copyright';
 
 import {makeStyles} from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
