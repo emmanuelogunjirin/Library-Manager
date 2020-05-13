@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Container from '@material-ui/core/Container';
-import Typography from '../HomepageComponents/Typography';
-import TextField from '../HomepageComponents/TextField';
+import Typography from '../../Components/Homepage/Typography';
+import TextField from '../../Components/Homepage/TextField';
 
 function Copyright() {
   return (

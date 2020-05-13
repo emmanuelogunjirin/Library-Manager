@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
-import AppBar from '../HomepageComponents/Header';
-import Toolbar, { styles as toolbarStyles } from '../HomepageComponents/Toolbar';
+import AppBar from '../../Components/Homepage/Header';
+import Toolbar, { styles as toolbarStyles } from '../../Components/Homepage/Toolbar';
 
 const styles = (theme) => ({
   title: {

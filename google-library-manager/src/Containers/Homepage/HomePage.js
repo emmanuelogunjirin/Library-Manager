@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '../HomepageComponents/SignInButton';
-import Typography from '../HomepageComponents/Typography';
+import Button from '../../Components/Homepage/SignInButton';
+import Typography from '../../Components/Homepage/Typography';
 import ProductHeroLayout from './HomePageLayout';
 
 const backgroundImage = 'https://source.unsplash.com/random'

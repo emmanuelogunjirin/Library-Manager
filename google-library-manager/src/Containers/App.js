@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUp from '../Pages/SignUp';
 import SignIn from '../Pages/SignIn';
-import Home from '../Home';
+import Home from '../Pages/Home';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
@@ -14,9 +14,6 @@ function App() {
           </Route>
           <Route path="/signin">
             <SignIn />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
           </Route>
           <Route path="/">
             <Home />
