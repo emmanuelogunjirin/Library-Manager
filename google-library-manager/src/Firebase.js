@@ -9,7 +9,5 @@ const firebaseConfig = {
   projectId: process.env.REACT_APP_PROJECT_IDENTIFICATION
 };
 
-var projectId = process.env.PROJECT_IDENTIFICATION;
-console.log(projectId);
 firebase.initializeApp(firebaseConfig);
 export default firebase;
