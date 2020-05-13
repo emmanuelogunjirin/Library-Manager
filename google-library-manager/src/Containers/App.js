@@ -1,6 +1,7 @@
 import React from 'react';
 import SignUp from '../Pages/SignUp';
 import SignIn from '../Pages/SignIn';
+import Home from '../onepirate/Home';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
             <SignUp />
           </Route>
           <Route path="/">
-            <SignIn />
+            <Home />
           </Route>
         </Switch>
       </div>
