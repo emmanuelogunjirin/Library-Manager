@@ -32,7 +32,8 @@ app.get('/api/books', async (req, res) => {
   }
 });
 
+const port = 8080;
 // Listening for requests on a specific port
-app.listen(8080, () => {
-  console.log('Server listening on port 8080');
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
