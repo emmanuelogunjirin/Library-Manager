@@ -15,6 +15,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {useHistory} from "react-router-dom";
 
 const signUpStyles = makeStyles((theme) => ({
     paper: {
@@ -38,6 +39,7 @@ const signUpStyles = makeStyles((theme) => ({
 
 const SignUp = () => {
     const classes = signUpStyles();
+    const history = useHistory();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -59,6 +61,7 @@ const SignUp = () => {
       setLastName(lastName);
       setEmail(email);
       setPassword(password);
+      history.push("/home");
     };
 
     const onChangeHandler = (event) => {

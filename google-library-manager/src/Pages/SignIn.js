@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {auth} from '../Authentication/Firebase';
+import {useHistory} from 'react-router-dom';
 import Copyright from '../Components/Copyright';
 import HomeHeader from '../Containers/Landing/LandingHeader';
 import {makeStyles} from '@material-ui/core/styles';
@@ -49,11 +51,19 @@ const signInStyles = makeStyles((theme) => ({
 
 const SignIn = () => {
     const classes = signInStyles();
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
-    const signInWithEmailAndPasswordHandler = (event,email, password) => {
-                event.preventDefault();
+    const signInWithEmailAndPasswordHandler = (event, email, password) => {
+      event.preventDefault();
+      try{
+        auth.signInWithEmailAndPassword(email, password);
+        history.push("/home")
+      } catch(error) {
+        setError("There was a problem signing you in, please try again")
+      }
     };
 
     const onChangeHandler = (event) => {
