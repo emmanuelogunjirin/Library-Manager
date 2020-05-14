@@ -51,7 +51,6 @@ const SignIn = () => {
     const classes = signInStyles();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
 
     const signInWithEmailAndPasswordHandler = 
             (event,email, password) => {
@@ -92,6 +91,8 @@ const SignIn = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange = {(event) => onChangeHandler(event)}
+                value = {email}
                 autoFocus
               />
               <TextField
@@ -103,6 +104,8 @@ const SignIn = () => {
                 label="Password"
                 type="password"
                 id="password"
+                onChange = {(event) => onChangeHandler(event)}
+                value = {password}
                 autoComplete="current-password"
               />
               <FormControlLabel
@@ -115,6 +118,7 @@ const SignIn = () => {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}
               >
                 Sign In
               </Button>
