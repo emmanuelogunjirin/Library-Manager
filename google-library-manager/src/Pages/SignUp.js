@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import HomeHeader from '../Containers/Landing/LandingHeader';
 import Copyright from '../Components/Copyright';
 import Avatar from '@material-ui/core/Avatar';
@@ -35,8 +35,34 @@ const signUpStyles = makeStyles((theme) => ({
     },
   }));
 
-function SignUp() {
+const SignUp = () => {
     const classes = signUpStyles();
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+      event.preventDefault();
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPassword("");
+    };
+
+    const onChangeHandler = event => {
+      const {pageValue, value} = event.currentTarget;
+
+      if(pageValue === "firstName") {
+        setFirstName(value);
+      } else if(pageValue === "lastName") {
+        setLastName(value);
+      } else if(pageValue === "email") {
+        setEmail(value);
+      } else if (pageValue === "password") {
+        setPassword(value);
+      }
+    };
   
     return (
       <Container component="main" maxWidth="xs">
@@ -60,6 +86,8 @@ function SignUp() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  onChange = {(event) => onChangeHandler(event)}
+                  value = {firstName}
                   autoFocus
                 />
               </Grid>
@@ -72,6 +100,8 @@ function SignUp() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
+                  onChange = {(event) => onChangeHandler(event)}
+                  value = {lastName}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -83,6 +113,8 @@ function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange = {(event) => onChangeHandler(event)}
+                  value = {email}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -95,6 +127,8 @@ function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange = {(event) => onChangeHandler(event)}
+                  value = {password}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -110,7 +144,7 @@ function SignUp() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              // onClick={() => makeUser(firstName.label, lastName.label, email.label, password.label)}
+              onClick = {(event) => {createUserWithEmailAndPasswordHandler(event, email, password)}}
               >
               Sign Up
             </Button>
