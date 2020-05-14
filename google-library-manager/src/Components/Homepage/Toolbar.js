@@ -3,9 +3,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 export const styles = (theme) => ({
   root: {
-    height: 64,
+    height: 60,
     [theme.breakpoints.up('sm')]: {
-      height: 80,
+      height: 50,
     },
   },
 });
