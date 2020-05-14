@@ -1,39 +1,48 @@
-import React, {useContext} from 'react';
-import SignUp from '../Pages/SignUp';
-import SignIn from '../Pages/SignIn';
-import Landing from '../Pages/Landing';
-import Homepage from '../Pages/Homepage';
-import UserProvider, {UserContext} from '../Containers/UserProvider'
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import React, { useContext } from "react";
+import { auth } from "../Authentication/Firebase";
+import SignUp from "../Pages/SignUp";
+import SignIn from "../Pages/SignIn";
+import Landing from "../Pages/Landing";
+import Homepage from "../Pages/Homepage";
+import UserProvider, { UserContext } from "../Containers/UserProvider";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 function App() {
-  // const user = useContext(UserContext);
   return (
     <UserProvider>
-      user ?
-      <Router>
-        <Route path="/home">
-          {/* <Homepage /> */}
-        </Route>
-      </Router>
-      :
-      <Router>
-        <div>
-          <Switch>
-            <Route path="/signup">
-              <SignUp />
-            </Route>
-            <Route path="/signin">
-              <SignIn />
-            </Route>
-            <Route path="/">
-              <Landing />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <AppRouter />
     </UserProvider>
   );
 }
+
+function AppRouter() {
+  const user = useContext(UserContext);
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <PrivateRoute path="/home" component={Homepage} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/" component={Landing} />
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      auth.currentUser ? <Component {...props} /> : <Redirect to="/signin" />
+    }
+  />
+);
 
 export default App;
