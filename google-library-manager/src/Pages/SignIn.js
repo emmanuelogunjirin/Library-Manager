@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Copyright from '../Components/Copyright';
 import HomeHeader from '../Containers/Landing/LandingHeader';
 import {makeStyles} from '@material-ui/core/styles';
@@ -47,8 +47,27 @@ const signInStyles = makeStyles((theme) => ({
     },
   }));
 
-function SignIn() {
+const SignIn = () => {
     const classes = signInStyles();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+
+    const signInWithEmailAndPasswordHandler = 
+            (event,email, password) => {
+                event.preventDefault();
+    };
+
+    const onChangeHandler = (event) => {
+        const {name, value} = event.currentTarget;
+
+        if(name === 'email') {
+            setEmail(value);
+        }
+        else if(name === 'password'){
+          setPassword(value);
+        }
+    };
   
     return (
       <Grid container component="main" className={classes.root}>

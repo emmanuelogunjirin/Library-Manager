@@ -1,5 +1,4 @@
 import homeIndex from '../homeIndex';
-
 import React from 'react';
 import LandingFooter from '../Containers/Landing/LandingFooter';
 import LandingPage from '../Containers/Landing/LandingPage';
