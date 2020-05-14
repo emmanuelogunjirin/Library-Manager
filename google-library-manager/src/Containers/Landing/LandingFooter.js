@@ -3,7 +3,7 @@ import Copyright from '../../Components/Copyright';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Typography from '../../Components/Homepage/Typography';
+import Typography from '../../Components/Landing/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {

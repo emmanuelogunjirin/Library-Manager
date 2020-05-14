@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '../../Components/Homepage/Typography';
-import ProductHeroLayout from './HomePageLayout';
+import Typography from '../../Components/Landing/Typography';
+import ProductHeroLayout from './LandingPageLayout';
 
 const backgroundImage = 'https://source.unsplash.com/random'
 const styles = (theme) => ({
