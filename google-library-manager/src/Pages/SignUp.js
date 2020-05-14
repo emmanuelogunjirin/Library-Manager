@@ -42,24 +42,24 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+    const createUserWithEmailAndPasswordHandler = (event, firstName, lastName, email, password) => {
       event.preventDefault();
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPassword("");
+      setFirstName(firstName);
+      setLastName(lastName);
+      setEmail(email);
+      setPassword(password);
     };
 
-    const onChangeHandler = event => {
-      const {pageValue, value} = event.currentTarget;
+    const onChangeHandler = (event) => {
+      const {name, value} = event.currentTarget;
 
-      if(pageValue === "firstName") {
+      if(name === "firstName") {
         setFirstName(value);
-      } else if(pageValue === "lastName") {
+      } else if(name === "lastName") {
         setLastName(value);
-      } else if(pageValue === "email") {
+      } else if(name === "email") {
         setEmail(value);
-      } else if (pageValue === "password") {
+      } else if (name === "password") {
         setPassword(value);
       }
     };
@@ -106,15 +106,16 @@ const SignUp = () => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  onChange = {(event) => onChangeHandler(event)}
-                  value = {email}
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                onChange = {(event) => onChangeHandler(event)}
+                value = {email}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -144,7 +145,7 @@ const SignUp = () => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick = {(event) => {createUserWithEmailAndPasswordHandler(event, email, password)}}
+              onClick = {(event) => {createUserWithEmailAndPasswordHandler(event, firstName, lastName, email, password)}}
               >
               Sign Up
             </Button>
