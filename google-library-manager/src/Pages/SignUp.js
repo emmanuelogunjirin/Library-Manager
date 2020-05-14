@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {auth, generateUserDocument as makeUser} from '../Authentication/Firebase'
 import HomeHeader from '../Containers/Landing/LandingHeader';
 import Copyright from '../Components/Copyright';
 import Avatar from '@material-ui/core/Avatar';
@@ -41,9 +42,19 @@ const SignUp = () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
 
-    const createUserWithEmailAndPasswordHandler = (event, firstName, lastName, email, password) => {
+    const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
       event.preventDefault();
+
+      try {
+        const {user} = await auth.createUserWithEmailAndPassword(email, password);
+        makeUser(user, {firstName, lastName});
+      } 
+      catch(error) {
+        setError('Error Signing up with email and password');
+      }
+
       setFirstName(firstName);
       setLastName(lastName);
       setEmail(email);
@@ -145,7 +156,7 @@ const SignUp = () => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick = {(event) => {createUserWithEmailAndPasswordHandler(event, firstName, lastName, email, password)}}
+              onClick = {(event) => {createUserWithEmailAndPasswordHandler(event, email, password)}}
               >
               Sign Up
             </Button>
