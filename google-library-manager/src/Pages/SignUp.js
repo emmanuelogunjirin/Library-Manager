@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeader from '../Containers/Homepage/HomeHeader';
+import HomeHeader from '../Containers/Landing/LandingHeader';
 import Copyright from '../Components/Copyright';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
