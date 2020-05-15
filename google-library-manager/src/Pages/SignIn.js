@@ -56,16 +56,15 @@ const SignIn = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
 
   const signInWithEmailAndPasswordHandler = (event, email, password) => {
     event.preventDefault();
     try {
-      auth.signInWithEmailAndPassword(email, password);
-      history.push("/home");
+      auth
+        .signInWithEmailAndPassword(email, password)
+        .then(history.push("/home"));
     } catch (error) {
-      setError("There was a problem signing you in, please try again");
-      console.log(error);
+      console.log("There was a problem signing you in, please try again");
     }
   };
 

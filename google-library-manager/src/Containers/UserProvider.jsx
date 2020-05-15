@@ -1,26 +1,26 @@
-import React, {Component, createContext } from 'react'
-import {auth, generateUserDocument} from '../Authentication/Firebase'
+import React, { Component, createContext } from "react";
+import { auth, generateUserDocument } from "../Authentication/Firebase";
 
-export const UserContext = createContext({user: null});
+export const UserContext = createContext({ user: null });
 
 class UserProvider extends Component {
-    state = {
-        user: null
-    };
+  state = {
+    user: null,
+  };
 
-    componentDidMount = () => {
-        auth.onAuthStateChanged(async userAuth => {
-            const user = await generateUserDocument(userAuth);
-            this.setState({user});
-        });
-    };
-    render() {
-        return (
-        <UserContext.Provider value={this.state.user}>
-            {this.props.children}
-        </UserContext.Provider>
-        );
-    }
+  componentDidMount = () => {
+    auth.onAuthStateChanged(async (userAuth) => {
+      const user = await generateUserDocument(userAuth);
+      this.setState({ user });
+    });
+  };
+  render() {
+    return (
+      <UserContext.Provider value={this.state.user}>
+        {this.props.children}
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default UserProvider;

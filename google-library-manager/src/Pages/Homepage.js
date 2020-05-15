@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { auth } from "../Authentication/Firebase";
 import { UserContext } from "../Containers/UserProvider";
 import Copyright from "../Components/Copyright";
 import clsx from "clsx";
@@ -12,21 +11,20 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    paddingRight: 24,
   },
   toolbarIcon: {
     display: "flex",
@@ -101,7 +99,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
-  // const user = useContext(UserContext);
   const { firstName, lastName } = useContext(UserContext);
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -142,11 +139,20 @@ export default function Dashboard() {
           >
             {firstName} {lastName}'s Dashboard
           </Typography>
-          <IconButton color="inherit">
+
+          <IconButton
+            color="secondary"
+            aria-label="logout"
+            // onClick={handleDrawerOpen}
+          >
+            <LockOutlinedIcon />
+          </IconButton>
+          {/* <LockOutlinedIcon color="secondary"></LockOutlinedIcon> */}
+          {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge>
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Drawer

@@ -47,7 +47,6 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
 
   const createUserWithEmailAndPasswordHandler = async (
     event,
@@ -61,14 +60,11 @@ const SignUp = () => {
         email,
         password
       );
-      console.log(auth.currentUser);
       makeUser(user, { firstName, lastName });
+      history.push("/home");
     } catch (error) {
-      setError("Error Signing up with email and password");
-      console.log(error);
+      console.log("Error Signing up with email and password");
     }
-
-    history.push("/home");
   };
 
   const onChangeHandler = (event) => {

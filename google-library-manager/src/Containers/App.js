@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { auth } from "../Authentication/Firebase";
 import SignUp from "../Pages/SignUp";
 import SignIn from "../Pages/SignIn";
 import Landing from "../Pages/Landing";
 import Homepage from "../Pages/Homepage";
-import UserProvider, { UserContext } from "../Containers/UserProvider";
+import UserProvider from "../Containers/UserProvider";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +12,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
     <UserProvider>
       <AppRouter />
@@ -21,7 +21,6 @@ function App() {
 }
 
 function AppRouter() {
-  const user = useContext(UserContext);
   return (
     <Router>
       <div>
@@ -44,5 +43,3 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
-
-export default App;
