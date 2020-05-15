@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { auth } from "../Authentication/Firebase";
 import { UserContext } from "../Containers/UserProvider";
 import Copyright from "../Components/Copyright";
 import clsx from "clsx";
@@ -17,6 +18,7 @@ import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { useHistory } from "react-router-dom";
 
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
@@ -101,7 +103,12 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const { firstName, lastName } = useContext(UserContext);
   const classes = useStyles();
+  const history = useHistory();
   const [open, setOpen] = React.useState(true);
+  const logoutUser = () => {
+    auth.signOut();
+    history.push("/");
+  };
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -143,16 +150,10 @@ export default function Dashboard() {
           <IconButton
             color="secondary"
             aria-label="logout"
-            // onClick={handleDrawerOpen}
+            onClick={logoutUser}
           >
             <LockOutlinedIcon />
           </IconButton>
-          {/* <LockOutlinedIcon color="secondary"></LockOutlinedIcon> */}
-          {/* <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Drawer
