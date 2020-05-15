@@ -60,8 +60,7 @@ const SignUp = () => {
         email,
         password
       );
-      makeUser(user, { firstName, lastName });
-      history.push("/home");
+      makeUser(user, { firstName, lastName }).then(history.push("/"));
     } catch (error) {
       console.log("Error Signing up with email and password");
     }
