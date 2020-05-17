@@ -14,7 +14,16 @@ import PersonIcon from "@material-ui/icons/PersonRounded";
 import LockIcon from "@material-ui/icons/LockRounded";
 
 function NavigationList() {
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
   const history = useHistory();
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+
+    if (index === 5) {
+      logoutUser();
+    }
+  };
   const logoutUser = () => {
     auth.signOut();
     history.push("/");
@@ -52,7 +61,11 @@ function NavigationList() {
           </ListItemIcon>
           <ListItemText primary="Profile" />
         </ListItem>
-        <ListItem button onClick={logoutUser}>
+        <ListItem
+          button
+          selected={selectedIndex === 5}
+          onClick={(event) => handleListItemClick(event, 5)}
+        >
           <ListItemIcon>
             <LockIcon />
           </ListItemIcon>
