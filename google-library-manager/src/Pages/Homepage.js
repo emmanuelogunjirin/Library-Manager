@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import clsx from "clsx";
+import Copyright from "../Components/Copyright";
 import { auth } from "../Authentication/Firebase";
 import { UserContext } from "../Containers/UserProvider";
-import Copyright from "../Components/Copyright";
-import clsx from "clsx";
+import { mainListItems, secondaryListItems } from "../Containers/User/Sidebar";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
@@ -17,8 +19,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import List from "@material-ui/core/List";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { useHistory } from "react-router-dom";
-import { mainListItems, secondaryListItems } from "../Containers/User/Sidebar";
 
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
@@ -100,14 +100,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+function Dashboard() {
   const { firstName, lastName } = useContext(UserContext);
-  const classes = useStyles();
-  const history = useHistory();
   const [open, setOpen] = React.useState(true);
+  const classes = useStyles();
+
   const logoutUser = () => {
     auth.signOut();
-    history.push("/");
+    useHistory.push("/");
   };
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -115,7 +115,6 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -184,3 +183,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+export default Dashboard;

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   auth,
   generateUserDocument as makeUser,
 } from "../Authentication/Firebase";
 import HomeHeader from "../Containers/Landing/LandingHeader";
 import Copyright from "../Components/Copyright";
+import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -16,9 +18,7 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { useHistory } from "react-router-dom";
 
 const signUpStyles = makeStyles((theme) => ({
   paper: {
@@ -65,7 +65,6 @@ const SignUp = () => {
       console.log("Error Signing up with email and password");
     }
   };
-
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
 
