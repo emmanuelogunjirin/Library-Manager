@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Copyright from "../Components/Copyright";
 import { auth } from "../Authentication/Firebase";
 import { UserContext } from "../Containers/UserProvider";
-import { mainListItems, secondaryListItems } from "../Containers/User/Sidebar";
+import Sidebar from "../Containers/User/Sidebar";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
@@ -16,7 +16,6 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
-import List from "@material-ui/core/List";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
@@ -103,11 +102,12 @@ const useStyles = makeStyles((theme) => ({
 function Dashboard() {
   const { firstName, lastName } = useContext(UserContext);
   const [open, setOpen] = React.useState(true);
+  const history = useHistory();
   const classes = useStyles();
 
   const logoutUser = () => {
     auth.signOut();
-    useHistory.push("/");
+    history.push("/");
   };
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -168,9 +168,7 @@ function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
+        <Sidebar />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
