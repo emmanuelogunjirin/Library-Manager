@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { auth } from "../../Authentication/Firebase";
 import List from "@material-ui/core/List";
@@ -14,26 +14,33 @@ import PersonIcon from "@material-ui/icons/PersonRounded";
 import LockIcon from "@material-ui/icons/LockRounded";
 
 function NavigationList() {
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(1);
   const history = useHistory();
 
-  const handleListItemClick = (event, index) => {
-    setSelectedIndex(index);
-
-    if (index === 5) {
-      logoutUser();
-    }
-  };
   const logoutUser = () => {
     auth.signOut();
     history.push("/");
+  };
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+    if (index === 1) {
+      history.push("/home");
+    } else if (index === 4) {
+      history.push("/home/profile");
+    } else if (index === 5) {
+      logoutUser();
+    }
   };
 
   return (
     <div>
       <List component="navigation" aria-label="mainDivider">
         <ListSubheader inset>Main Actions</ListSubheader>
-        <ListItem button>
+        <ListItem
+          button
+          selected={selectedIndex === 1}
+          onClick={(event) => handleListItemClick(event, 1)}
+        >
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
@@ -55,7 +62,11 @@ function NavigationList() {
       <Divider />
       <List component="navigation" aria-label="secondaryDivider">
         <ListSubheader inset>Account Actions</ListSubheader>
-        <ListItem button>
+        <ListItem
+          button
+          selected={selectedIndex === 4}
+          onClick={(event) => handleListItemClick(event, 4)}
+        >
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>

@@ -10,6 +10,7 @@ import SignUp from "../Pages/SignUp";
 import SignIn from "../Pages/SignIn";
 import Landing from "../Pages/Landing";
 import Homepage from "../Pages/Homepage";
+import Profile from "../Pages/Profile";
 import UserProvider from "../Containers/UserProvider";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -33,10 +34,11 @@ function AppRouter() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute path="/home" component={Homepage} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/signin" component={SignIn} />
-        <Route path="/" component={Landing} />
+        <PrivateRoute exact path="/home" component={Homepage} />
+        <PrivateRoute exact path="/home/profile" component={Profile} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/" component={Landing} />
       </Switch>
     </Router>
   );
