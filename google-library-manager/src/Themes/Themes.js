@@ -1,21 +1,22 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import { green, grey, red } from '@material-ui/core/colors';
+/* Imports needed by the system */
+import { createMuiTheme } from "@material-ui/core/styles";
+import { green, grey, red } from "@material-ui/core/colors";
 
 const rawTheme = createMuiTheme({
   palette: {
     primary: {
-      light: '#69696a',
-      main: '#28282a',
-      dark: '#1e1e1f',
+      light: "#69696a",
+      main: "#28282a",
+      dark: "#1e1e1f",
     },
     secondary: {
-      light: '#fff5f8',
-      main: '#ff3366',
-      dark: '#e62958',
+      light: "#fff5f8",
+      main: "#ff3366",
+      dark: "#e62958",
     },
     warning: {
-      main: '#ffc071',
-      dark: '#ffb25e',
+      main: "#ffc071",
+      dark: "#ffb25e",
     },
     error: {
       xLight: red[50],
@@ -31,19 +32,19 @@ const rawTheme = createMuiTheme({
   typography: {
     fontFamily: "'Work Sans', sans-serif",
     fontSize: 14,
-    fontWeightLight: 300, // Work Sans
-    fontWeightRegular: 400, // Work Sans
-    fontWeightMedium: 700, // Roboto Condensed
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 700,
     fontFamilySecondary: "'Roboto Condensed', sans-serif",
   },
-});
+}); // Constant variable holding some theme and stylistic values values
 
 const fontHeader = {
   color: rawTheme.palette.text.primary,
   fontWeight: rawTheme.typography.fontWeightMedium,
   fontFamily: rawTheme.typography.fontFamilySecondary,
-  textTransform: 'uppercase',
-};
+  textTransform: "uppercase",
+}; // Constant variable holding some theme and stylistic values values
 
 const theme = {
   ...rawTheme,
@@ -103,6 +104,6 @@ const theme = {
       fontSize: 14,
     },
   },
-};
+}; // Constant variable holding some theme and stylistic values values
 
-export default theme;
+export default theme; // Exports the default theme
