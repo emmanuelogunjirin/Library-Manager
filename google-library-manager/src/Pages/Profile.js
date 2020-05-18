@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import useStyles from "../Containers/User/UserStyles";
 import { UserContext } from "../Containers/UserProvider";
-import Copyright from "../Components/Copyright";
 import MainTheme from "../Containers/User/MainTheme";
-import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 
@@ -24,6 +22,7 @@ function Profile() {
             value={firstName}
             disabled
             variant="outlined"
+            fullWidth
           />
           <TextField
             className={classes.spacing}
@@ -32,6 +31,7 @@ function Profile() {
             value={lastName}
             disabled
             variant="outlined"
+            fullWidth
           />
           <TextField
             className={classes.spacing}

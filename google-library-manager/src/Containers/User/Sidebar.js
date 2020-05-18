@@ -25,6 +25,8 @@ function NavigationList() {
     setSelectedIndex(index);
     if (index === 1) {
       history.push("/home");
+    } else if (index === 2) {
+      history.push("/home/search");
     } else if (index === 4) {
       history.push("/home/profile");
     } else if (index === 5) {
@@ -46,13 +48,21 @@ function NavigationList() {
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
-        <ListItem button>
+        <ListItem
+          button
+          selected={selectedIndex === 2}
+          onClick={(event) => handleListItemClick(event, 2)}
+        >
           <ListItemIcon>
             <SearchIcon />
           </ListItemIcon>
           <ListItemText primary="Search" />
         </ListItem>
-        <ListItem button>
+        <ListItem
+          button
+          selected={selectedIndex === 3}
+          onClick={(event) => handleListItemClick(event, 3)}
+        >
           <ListItemIcon>
             <FavoritesIcon />
           </ListItemIcon>

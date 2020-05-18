@@ -11,6 +11,7 @@ import SignIn from "../Pages/SignIn";
 import Landing from "../Pages/Landing";
 import Homepage from "../Pages/Homepage";
 import Profile from "../Pages/Profile";
+import Search from "../Pages/Search";
 import UserProvider from "../Containers/UserProvider";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -36,6 +37,7 @@ function AppRouter() {
       <Switch>
         <PrivateRoute exact path="/home" component={Homepage} />
         <PrivateRoute exact path="/home/profile" component={Profile} />
+        <PrivateRoute exact path="/home/search" component={Search} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/" component={Landing} />

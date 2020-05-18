@@ -15,6 +15,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import PersonIcon from "@material-ui/icons/PersonRounded";
 
 function MainTheme() {
   const { firstName, lastName } = useContext(UserContext);
@@ -25,6 +26,9 @@ function MainTheme() {
   const logoutUser = () => {
     auth.signOut();
     history.push("/");
+  };
+  const userProfile = () => {
+    history.push("/home/profile");
   };
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -62,7 +66,13 @@ function MainTheme() {
           >
             {firstName} {lastName}'s Library
           </Typography>
-
+          <IconButton
+            color="secondary"
+            aria-label="profile"
+            onClick={userProfile}
+          >
+            <PersonIcon />
+          </IconButton>
           <IconButton
             color="secondary"
             aria-label="logout"
