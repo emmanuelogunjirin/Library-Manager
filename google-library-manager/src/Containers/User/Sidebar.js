@@ -27,6 +27,8 @@ function NavigationList() {
       history.push("/home");
     } else if (index === 2) {
       history.push("/home/search");
+    } else if (index === 3) {
+      history.push("/home/favorites");
     } else if (index === 4) {
       history.push("/home/profile");
     } else if (index === 5) {
