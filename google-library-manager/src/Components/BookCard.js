@@ -21,10 +21,10 @@ function BookCard({ book, inLibraryInitially }) {
         id: book.id,
       })
       .then(() => {
-        console.log("Document successfully written!");
+        console.log("Document Written!");
       })
       .catch((error) => {
-        console.error("Error writing document: ", error);
+        console.error("Error: ", error);
       });
     setInLibrary(true);
   };
@@ -35,11 +35,11 @@ function BookCard({ book, inLibraryInitially }) {
       .doc(id)
       .delete()
       .then(() => {
-        console.log("Document successfully deleted!");
+        console.log("Document Deleted!");
         setInLibrary(false);
       })
       .catch((error) => {
-        console.error("Error removing document: ", error);
+        console.error("Error: ", error);
       });
   };
 

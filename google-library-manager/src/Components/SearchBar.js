@@ -9,7 +9,7 @@ import SearchIcon from "@material-ui/icons/SearchOutlined";
 function HomeSetup() {
   const classes = useStyles();
   const [searchWord, setSearchWord] = useState("");
-  const updateSearch = (e) => setSearchWord(e.target.value);
+  const updateSearch = (e) => setSearchWord(e);
   const handleMouseDownSearch = (e) => e.preventDefault();
 
   return (
@@ -23,6 +23,7 @@ function HomeSetup() {
             margin="normal"
             variant="outlined"
             autoFocus
+            fullWidth
             onChange={(e) => updateSearch(e)}
             InputProps={{
               endAdornment: (
@@ -37,7 +38,6 @@ function HomeSetup() {
                 </InputAdornment>
               ),
             }}
-            fullWidth
           />
         </Container>
       </main>
