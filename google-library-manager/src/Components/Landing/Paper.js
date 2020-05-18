@@ -1,9 +1,10 @@
-import React from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import MuiPaper from '@material-ui/core/Paper';
-import { capitalize } from '@material-ui/core/utils';
-import { withStyles } from '@material-ui/core/styles';
+/* Imports needed by system */
+import React from "react";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import { capitalize } from "@material-ui/core/utils";
+import { withStyles } from "@material-ui/core/styles";
+import MuiPaper from "@material-ui/core/Paper";
 
 const styles = (theme) => ({
   backgroundLight: {
@@ -18,10 +19,28 @@ const styles = (theme) => ({
   padding: {
     padding: theme.spacing(1),
   },
-});
+}); // Defines a specific style for the file
 
+Paper.propTypes = {
+  background: PropTypes.oneOf(["light", "main", "dark"]),
+  classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  padding: PropTypes.bool,
+}; // Defines a prop style for this file
+
+/**
+ * A paper function that is specific for a certain style
+ * @param {*} props a condition that the paper function must adhere to
+ */
 function Paper(props) {
-  const { background = 'light', classes, className, padding = false, ...other } = props;
+  const {
+    background = "light",
+    classes,
+    className,
+    padding = false,
+    ...other
+  } = props; // Defines extra props
+
   return (
     <MuiPaper
       elevation={0}
@@ -31,18 +50,11 @@ function Paper(props) {
         {
           [classes.padding]: padding,
         },
-        className,
+        className
       )}
       {...other}
     />
   );
 }
 
-Paper.propTypes = {
-  background: PropTypes.oneOf(['light', 'main', 'dark']),
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  padding: PropTypes.bool,
-};
-
-export default withStyles(styles)(Paper);
+export default withStyles(styles)(Paper); // Exports the default function
