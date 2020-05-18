@@ -8,27 +8,36 @@ import Container from "@material-ui/core/Container";
 function HomeSetup() {
   const classes = useStyles();
   const [books, setBooks] = useState(null);
+  const [word, setWord] = useState(null);
 
   const handleBookSearch = (bookRelation) => {
-    fetch("/api/books?title=" + bookRelation)
+    if (bookRelation !== "undefined") {
+      setWord(bookRelation);
+      search(word);
+    }
+  };
+  const search = (word) => {
+    fetch("/api/books?title=" + word)
       .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        setBooks(res);
-      });
+      .then(
+        (data) => {
+          setBooks(data);
+          console.log(data);
+        },
+        [word]
+      );
   };
 
   return (
     <div>
       <MainTheme />
-      <SearchBar handleBookSearch={handleBookSearch} />
+      <SearchBar findBook={handleBookSearch} />
       <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
         <Container className={classes.container}>
-          {books && books.map((book) => <BookCard book={book} key={book.id} />)}
-          {books && books.length === 0 && (
-            <div variant="h1">No results matched that search</div>
-          )}
+          {books &&
+            books.map((book) => {
+              return <BookCard book={book} key={book.id} />;
+            })}
         </Container>
       </main>
     </div>
