@@ -29,7 +29,7 @@ function SearchBar({ findBook }) {
       <Container className={classes.container}>
         <TextField
           className={classes.spacing}
-          label="Enter a Book Title"
+          label="Enter a Book, Author, or Keyword"
           margin="normal"
           variant="outlined"
           autoFocus
