@@ -2,19 +2,32 @@
   "name": "google-library-manager",
   "version": "0.1.0",
   "private": true,
+  "author": "Emmanuel Ogunjirin",
+  "license": "ISC",
+  "proxy": "http://localhost:8080",
+  "keywords": [
+    "Google Library Manager",
+    "Library Manager"
+  ],
   "dependencies": {
+    "@material-ui/core": "^4.9.14",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "express": "^4.17.1",
+    "firebase": "^7.14.3",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node app",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev-server": "nodemon server.js --watch server.js",
+    "dev-client": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
