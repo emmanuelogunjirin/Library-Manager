@@ -13,7 +13,7 @@ import Homepage from "../Pages/Homepage";
 import Profile from "../Pages/Profile";
 import Search from "../Pages/Search";
 import Favorites from "../Pages/SavedBooks";
-import UserProvider from "../Containers/UserProvider";
+import UserProvider from "./UserProvider";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route

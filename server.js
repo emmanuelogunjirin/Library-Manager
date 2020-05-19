@@ -1,6 +1,7 @@
 const express = require("express"); // Sets up the express requirement
 const app = express(); // Actually creating a new server instance
 const fetch = require("isomorphic-fetch"); // Sets up the isomorphic fetch requirement
+const path = require("path");
 
 /* Section that gets data form the API */
 app.get("/api/books", async (req, res) => {
@@ -30,8 +31,11 @@ app.get("/api/books", async (req, res) => {
   }
 });
 
-const port = 8080; // Sets the port of the server
-// Listening for requests on a specific port
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`); // Logs to console
+app.use(express.static(path.join(__dirname, "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build/index.html"));
 });
+
+// Listening for requests on a specific port
+const port = process.env.PORT || 8080;
+app.listen(port, () => console.log(`App listening on port ${port}`));
