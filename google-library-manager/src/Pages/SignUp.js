@@ -150,7 +150,7 @@ const SignUp = () => {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I would love to receive book reccomendations."
+                label="I would love to receive book recommendations."
               />
             </Grid>
           </Grid>

@@ -17,6 +17,12 @@ function SearchBar({ findBook }) {
   const updateSearch = (e) => setSearchWord(e.target.value);
   const handleMouseDownSearch = (e) => e.preventDefault();
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      findBook(searchWord);
+    }
+  };
+
   return (
     <div>
       <div className={classes.appBarSpacer} />
@@ -29,6 +35,7 @@ function SearchBar({ findBook }) {
           autoFocus
           fullWidth
           onChange={(e) => updateSearch(e)}
+          onKeyPress={handleKeyPress}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -36,6 +43,7 @@ function SearchBar({ findBook }) {
                   disabled={searchWord.length === 0}
                   onClick={() => findBook(searchWord)}
                   onMouseDown={handleMouseDownSearch}
+                  onKeyPress={handleKeyPress}
                 >
                   <SearchIcon></SearchIcon>
                 </IconButton>

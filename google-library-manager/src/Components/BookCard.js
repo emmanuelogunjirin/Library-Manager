@@ -1,7 +1,7 @@
 /* Imports needed by the system */
 import React, { useState, useContext } from "react";
-import AddIcon from "@material-ui/icons/AddOutlined";
-import DeleteIcon from "@material-ui/icons/DeleteOutlined";
+import FavoritesIcon from "@material-ui/icons/FavoriteRounded";
+import FavoritesIconOutlined from "@material-ui/icons/FavoriteBorderOutlined";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -57,6 +57,30 @@ function BookCard({ book, inLibraryInitially }) {
       });
   }; // Section to delete a book from a user library if there
 
+  function ControlFavorites() {
+    if (inLibrary) {
+      return (
+        <FavoritesIcon
+          color="secondary"
+          variant="body2"
+          disabled={inLibrary}
+          onClick={() => handleDelete(book)}
+          style={{ cursor: "pointer" }}
+        ></FavoritesIcon>
+      );
+    } else {
+      return (
+        <FavoritesIconOutlined
+          color="secondary"
+          variant="body2"
+          disabled={inLibrary}
+          onClick={() => handleAdd(book)}
+          style={{ cursor: "pointer" }}
+        ></FavoritesIconOutlined>
+      );
+    }
+  }
+
   return (
     <div className={classes.root}>
       <Box p={2} borderColor="secondary.main">
@@ -80,20 +104,7 @@ function BookCard({ book, inLibraryInitially }) {
                 </Typography>
               </Grid>
               <Grid item>
-                <AddIcon
-                  color="primary"
-                  variant="body2"
-                  disabled={inLibrary}
-                  onClick={() => handleAdd(book)}
-                  style={{ cursor: "pointer" }}
-                ></AddIcon>
-                <DeleteIcon
-                  color="primary"
-                  variant="body2"
-                  disabled={!inLibrary}
-                  onClick={() => handleDelete(book)}
-                  style={{ cursor: "pointer" }}
-                ></DeleteIcon>
+                <ControlFavorites />
               </Grid>
             </Grid>
             <Grid item>
