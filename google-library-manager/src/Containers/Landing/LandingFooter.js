@@ -1,41 +1,42 @@
-import React from 'react';
-import Copyright from '../../Components/Copyright';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import Typography from '../../Components/Landing/Typography';
+/* Imports needed by the file */
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Typography from "../../Components/Landing/Typography";
+import Copyright from "../../Components/Copyright";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
     backgroundColor: theme.palette.secondary.light,
   },
   container: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(16),
-    display: 'flex',
+    display: "flex",
   },
   iconsWrapper: {
     height: 5,
   },
   icons: {
-    display: 'flex',
+    display: "flex",
   },
   icon: {
     width: 48,
-    height:48,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: 48,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: theme.palette.warning.main,
     marginRight: theme.spacing(1),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: theme.palette.warning.dark,
     },
   },
   list: {
     margin: 0,
-    listStyle: 'none',
+    listStyle: "none",
     padding: 0,
   },
   listItem: {
@@ -46,10 +47,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     width: 150,
   },
-}));
+})); // Styles needed for this specific file
 
-export default function AppFooter() {
-  const classes = useStyles();
+/**
+ * Function to display the footer for the homepage
+ */
+function AppFooter() {
+  const classes = useStyles(); // Uses the styles theme
 
   return (
     <Typography component="footer" className={classes.root}>
@@ -62,15 +66,16 @@ export default function AppFooter() {
               justify="center"
               className={classes.iconsWrapper}
               spacing={2}
-              >
-
+            >
               <Grid item>
                 <Copyright />
               </Grid>
             </Grid>
-            </Grid>
           </Grid>
+        </Grid>
       </Container>
     </Typography>
   );
 }
+
+export default AppFooter; // Exports the defualt function

@@ -1,10 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import AppBar from '../../Components/Landing/Header';
-import Toolbar, { styles as toolbarStyles } from '../../Components/Landing/Toolbar';
+/* Imports needed by the file */
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { withStyles } from "@material-ui/core/styles";
+import Link from "@material-ui/core/Link";
+import AppBar from "../../Components/Landing/Header";
+import Toolbar, {
+  styles as toolbarStyles,
+} from "../../Components/Landing/Toolbar";
+
+AppAppBar.propTypes = {
+  classes: PropTypes.object.isRequired,
+}; // Properties of the app bar
 
 const styles = (theme) => ({
   title: {
@@ -12,7 +19,7 @@ const styles = (theme) => ({
   },
   placeholder: toolbarStyles(theme).root,
   toolbar: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   left: {
     flex: 1,
@@ -22,8 +29,8 @@ const styles = (theme) => ({
   },
   right: {
     flex: 1,
-    display: 'flex',
-    justifyContent: 'flex-end',
+    display: "flex",
+    justifyContent: "flex-end",
   },
   rightLink: {
     fontSize: 15,
@@ -33,8 +40,12 @@ const styles = (theme) => ({
   linkSecondary: {
     color: theme.palette.secondary.main,
   },
-});
+}); // Styles needed for this file
 
+/**
+ * Method to display the application bar
+ * @param {*} props parameter for the style to use
+ */
 function AppAppBar(props) {
   const { classes } = props;
 
@@ -50,7 +61,7 @@ function AppAppBar(props) {
             className={classes.title}
             href="/"
           >
-            {'Google Library Manager'}
+            {"Google Library Manager"}
           </Link>
           <div className={classes.right}>
             <Link
@@ -60,7 +71,7 @@ function AppAppBar(props) {
               className={classes.rightLink}
               href="/signin"
             >
-              {'Sign In'}
+              {"Sign In"}
             </Link>
             <Link
               variant="h6"
@@ -68,7 +79,7 @@ function AppAppBar(props) {
               className={clsx(classes.rightLink, classes.linkSecondary)}
               href="/signup"
             >
-              {'Sign Up'}
+              {"Sign Up"}
             </Link>
           </div>
         </Toolbar>
@@ -78,8 +89,4 @@ function AppAppBar(props) {
   );
 }
 
-AppAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(AppAppBar);
+export default withStyles(styles)(AppAppBar); // Exports the default function
