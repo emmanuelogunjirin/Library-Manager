@@ -1,19 +1,25 @@
+/* Imports needed by the system */
 import React, { useState, useContext } from "react";
-import { UserContext } from "../Containers/UserProvider";
-import useStyles from "../Containers/User/UserStyles";
 import AddIcon from "@material-ui/icons/AddOutlined";
 import DeleteIcon from "@material-ui/icons/DeleteOutlined";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Box from "@material-ui/core/Box";
+import { UserContext } from "../Containers/UserProvider";
+import useStyles from "../Containers/User/UserStyles";
 import firebase from "../Authentication/Firebase";
 
-const firebasedb = firebase.firestore();
+const firebasedb = firebase.firestore(); // Gets access to the firestore
 
+/**
+ * This card is a book object that populated based on information from the book
+ * @param {book} param is the book object to be shown
+ * @param {inLibraryInitially} param is an argument checking if the book is in the user library
+ */
 function BookCard({ book, inLibraryInitially }) {
-  const classes = useStyles();
-  const { uid } = useContext(UserContext);
+  const classes = useStyles(); // Uses the general styles
+  const { uid } = useContext(UserContext); // Imports the user
   const [inLibrary, setInLibrary] = useState(inLibraryInitially);
 
   const handleAdd = (book) => {
@@ -35,7 +41,7 @@ function BookCard({ book, inLibraryInitially }) {
       .catch((error) => {
         console.error("Error: ", error);
       });
-  };
+  }; // Section to add a book to a user library if not there already
 
   const handleDelete = (id) => {
     firebasedb
@@ -49,7 +55,7 @@ function BookCard({ book, inLibraryInitially }) {
       .catch((error) => {
         console.error("Error: ", error);
       });
-  };
+  }; // Section to delete a book from a user library if there
 
   return (
     <div className={classes.root}>
@@ -100,4 +106,4 @@ function BookCard({ book, inLibraryInitially }) {
   );
 }
 
-export default BookCard;
+export default BookCard; // Exports the default card
